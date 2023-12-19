@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""for a given employee ID, returns information about his/her TODO list progress"""
+"""for a given employee ID, returns information about his/her TODO list"""
 import requests
 from sys import argv
 
@@ -15,7 +15,10 @@ if __name__ == "__main__":
     for todo in todos:
         if todo["completed"] is True:
             done += 1
-    print("Employee {} is done with tasks({}/{}):".format(name, done, len(todos)))
+    print(
+        "Employee {} is done with tasks({}/{}):".format(name,
+                                                        done,
+                                                        len(todos)))
     for todo in todos:
         if todo["completed"]:
             print("\t {}".format(todo["title"]))
