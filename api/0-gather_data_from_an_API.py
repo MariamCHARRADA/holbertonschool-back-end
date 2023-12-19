@@ -4,13 +4,12 @@ import requests
 from sys import argv
 
 if __name__ == "__main__":
-    url = "https://jsonplaceholder.typicode.com/"
-    request = requests.get(url)
     id = int(argv[1])
+    url = "https://jsonplaceholder.typicode.com/"
+    request = requests.get(f"{url}users/{id}")
     data = request.json()
-    user = data["users"][id - 1]
+    name = data["name"]
     todos = data["todos"]
-    name = user["name"]
 
     done = 0
     for todo in todos:
