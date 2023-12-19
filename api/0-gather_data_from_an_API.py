@@ -8,8 +8,8 @@ if __name__ == "__main__":
     url = "https://jsonplaceholder.typicode.com/"
     request = requests.get(f"{url}users/{id}")
     data = request.json()
-    name = data["name"]
-    todos = data["todos"]
+    name = data.get("name")
+    todos = requests.get(f"{url}todos?userId={id}").json()
 
     done = 0
     for todo in todos:
