@@ -30,17 +30,9 @@ if __name__ == "__main__":
             print("\t {}".format(todo["title"]))
 
     filename = f"{id}.csv"
-    field_names = [
-        "USER_ID", "USERNAME", "TASK_COMPLETED_STATUS", "TASK_TITLE"
-        ]
-
+    
     with open(filename, "w", newline="") as csvfile:
-        writer = csv.DictWriter(csvfile, fieldnames=field_names)
+        writer = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
         for todo in todos_data:
-            user_info = {
-                "USER_ID": id,
-                "USERNAME": username,
-                "TASK_COMPLETED_STATUS": todo["completed"],
-                "TASK_TITLE": todo["title"],
-            }
-            writer.writerows([user_info])
+            user_info = [id, username, todo["completed"], todo["title"]]
+            writer.writerow(user_info)
