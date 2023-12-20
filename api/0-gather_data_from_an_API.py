@@ -9,13 +9,12 @@ if __name__ == "__main__":
     todos_url = f"https://jsonplaceholder.typicode.com/todos?userId={id}"
     todos_response = requests.get(todos_url)
     todos_data = todos_response.json()
-    
+
     user_url = f"https://jsonplaceholder.typicode.com/users/{id}"
     user_response = requests.get(user_url)
     user_data = user_response.json()
     name = user_data["name"]
-    
-    
+
     done = 0
     for todo in todos_data:
         if todo["completed"] is True:
