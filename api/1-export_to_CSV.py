@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 """for a given employee ID, returns information about his/her TODO list"""
+import csv
 import requests
 from sys import argv
-import csv
+
 
 if __name__ == "__main__":
     id = int(argv[1])
@@ -27,17 +28,19 @@ if __name__ == "__main__":
     for todo in todos_data:
         if todo["completed"]:
             print("\t {}".format(todo["title"]))
-    
-    filename = f"{id}.csv"
-    field_names = ['USER_ID', 'USERNAME', 'TASK_COMPLETED_STATUS', 'TASK_TITLE']
 
-    with open(filename, 'w', newline='') as csvfile:
+    filename = f"{id}.csv"
+    field_names = [
+        "USER_ID", "USERNAME", "TASK_COMPLETED_STATUS", "TASK_TITLE"
+        ]
+
+    with open(filename, "w", newline="") as csvfile:
         writer = csv.DictWriter(csvfile, fieldnames=field_names)
         for todo in todos_data:
             user_info = {
-                'USER_ID': id,
-                'USERNAME': username,
-                'TASK_COMPLETED_STATUS': todo['completed'],
-                'TASK_TITLE': todo['title']
+                "USER_ID": id,
+                "USERNAME": username,
+                "TASK_COMPLETED_STATUS": todo["completed"],
+                "TASK_TITLE": todo["title"],
             }
             writer.writerows([user_info])
