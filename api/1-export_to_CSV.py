@@ -18,19 +18,8 @@ if __name__ == "__main__":
     name = user_data["name"]
     username = user_data["username"]
 
-    done = 0
-    for todo in todos_data:
-        if todo["completed"] is True:
-            done += 1
-    print("Employee {} is done with tasks({}/{}):".format(name,
-                                                          done,
-                                                          len(todos_data)))
-    for todo in todos_data:
-        if todo["completed"]:
-            print("\t {}".format(todo["title"]))
-
     filename = f"{id}.csv"
-    
+
     with open(filename, "w", newline="") as csvfile:
         writer = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
         for todo in todos_data:
