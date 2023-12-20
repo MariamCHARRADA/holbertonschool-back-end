@@ -15,7 +15,9 @@ if __name__ == "__main__":
     for todo in todos_data:
         if todo["completed"] is True:
             done += 1
-    print("Employee {} is done with tasks({}/{}):".format(name, done, len(todos_data)))
+    print("Employee {} is done with tasks({}/{}):".format(name,
+                                                          done,
+                                                          len(todos_data)))
     for todo in todos_data:
         if todo["completed"]:
-            print("\t {}".format(todo["title"]))
+            print("\t{}".format(todo["title"]))
