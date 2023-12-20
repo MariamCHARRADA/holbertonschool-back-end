@@ -20,4 +20,4 @@ if __name__ == "__main__":
                                                           len(todos_data)))
     for todo in todos_data:
         if todo["completed"]:
-            print("\t{}".format(todo["title"]))
+            print("\t {}".format(todo["title"]))
