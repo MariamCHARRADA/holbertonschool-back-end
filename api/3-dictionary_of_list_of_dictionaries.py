@@ -11,8 +11,8 @@ if __name__ == "__main__":
     user_url = f"https://jsonplaceholder.typicode.com/users/{id}"
     user_response = requests.get(user_url)
     user_data = user_response.json()
-    name = user_data["name"]
-    username = user_data["username"]
+    name = user_data.get("name")
+    username = user_data.get("username")
 
     filename = "todo_all_employees.json"
     try:
