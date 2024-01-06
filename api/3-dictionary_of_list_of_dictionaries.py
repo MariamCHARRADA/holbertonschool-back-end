@@ -4,7 +4,6 @@ import json
 import requests
 
 if __name__ == "__main__":
-    
     todos_url = f"https://jsonplaceholder.typicode.com/todos?userId={id}"
     todos_response = requests.get(todos_url)
     todos_data = todos_response.json()
